@@ -1,62 +1,84 @@
 # PGP Companion  
-Der systemweite Secure Layer für Android  
-**Zero‑Trust · Open Source · OpenPGP‑kompatibel**
+A system‑wide secure layer for Android  
+**Zero‑Trust · Open Source · OpenPGP‑Compatible**
 
-PGP Companion bringt starke, interoperable Verschlüsselung **in jede App auf Android** – ohne Server, ohne Accounts, ohne Datenabflüsse.  
-Das Projekt ist vollständig Open Source (MIT‑Lizenz) und entwickelt, um sichere Kommunikation für alle zugänglich zu machen.
+PGP Companion brings strong, interoperable encryption to **any app on Android** — without servers, accounts, or data collection.  
+The project is fully open source (MIT) and designed to make secure communication accessible to everyone.
 
-👉 **Website / GitHub Pages:** https://majes55.github.io/pgp-companion/  
-👉 **Kontakt:** maikjeschke84@gmail.com  
-👉 **GitHub:** https://github.com/majes55  
-
----
-
-## 🚀 Was ist PGP Companion?
-
-PGP Companion ist ein **systemweiter Secure Layer**, der OpenPGP‑Verschlüsselung überall nutzbar macht:
-
-- in Messengern  
-- in E‑Mails  
-- in Notizen  
-- im Browser  
-- in jeder beliebigen App  
-
-Das Ziel:  
-**Starke Kryptografie für alle – ohne technische Hürden, ohne Plattform‑Lock‑In.**
+👉 **Project Website:** https://majes55.github.io/pgp-companion/  
+👉 **GitHub Profile:** https://github.com/majes55  
+👉 **Contact:** maikjeschke84@gmail.com  
 
 ---
 
-## 🔐 Kernfunktionen
+## 🚀 What is PGP Companion?
+
+PGP Companion is a **system‑wide secure layer** that enables OpenPGP encryption anywhere on Android:
+
+- messaging apps  
+- email clients  
+- note apps  
+- browsers  
+- any text field  
+
+The goal is simple:  
+**Make strong cryptography usable everywhere — without platform lock‑in or trust in third parties.**
+
+---
+
+## 🔐 Core Features
 
 ### **Secure Mode**
-- Master‑Passwort  
-- Android Keystore  
-- Private Keys nur verschlüsselt gespeichert  
-- Auto‑Lock + RAM‑Wipe  
+- Master password  
+- Android Keystore integration  
+- Private keys stored only in encrypted form  
+- Auto‑lock and memory wiping  
 
-### **OpenPGP‑Engine**
-- RSA 4096  
-- KeyRing‑Generator  
-- ASCII‑Armor Export/Import  
-- BouncyCastle‑basierte Encrypt/Decrypt‑Pipeline  
+### **OpenPGP Engine**
+- RSA 4096 key generation  
+- ASCII‑armor import/export  
+- Encryption & decryption pipeline (BouncyCastle)  
+- Fully compatible with GnuPG, Proton, Thunderbird, OpenKeychain  
 
-### **Systemweites Overlay (in Entwicklung)**
-- Verschlüsseln/Entschlüsseln in jeder App  
-- Kontextsensitiv  
-- Zero‑Trust: keine Daten verlassen das Gerät  
+### **System‑Wide Overlay (in development)**
+- Encrypt/decrypt in any app  
+- Lightweight, context‑aware UI  
+- Zero‑Trust: no data leaves the device  
 
 ### **Auto‑Detect Engine**
-- erkennt PGP‑Blöcke automatisch  
-- reduziert Fehler und manuelle Arbeit  
+- Automatically detects PGP blocks  
+- Reduces user errors and manual steps  
 
 ---
 
-## 🧩 Architekturüberblick
+## 🧩 Architecture Overview
 
-- `security/` – Secure Mode, MasterKey, AES‑256‑GCM, Keystore  
-- `crypto/` – OpenPGP‑KeyRing, Encryption Pipeline  
-- `ui/` – Beispiel‑ViewModel, App‑Integration  
-- Zero‑Trust: keine Server, keine Cloud, keine Telemetrie  
+- `security/` — Secure Mode, master key handling, AES‑256‑GCM, Keystore  
+- `crypto/` — OpenPGP keyring generation and encryption pipeline  
+- `ui/` — Example ViewModel and integration logic  
+- Zero‑Trust design: no servers, no telemetry, no cloud  
+
+---
+
+## 📦 Example Usage
+
+```kotlin
+secureModeManager.setMasterPassword("Password!".toCharArray())
+secureModeManager.unlock("Password!".toCharArray())
+
+val key = PgpKeyManager.generateRsaKeyRing(
+    "Maik <mail@example.com>",
+    "KeyPass!".toCharArray()
+)
+
+val encrypted = PgpKeyManager.encryptText("Hello World", key.publicKeyRing)
+val decrypted = PgpKeyManager.decryptText(
+    encrypted,
+    key.secretKeyRing,
+    "KeyPass!".toCharArray()
+)
+
+
 
 ---
 
