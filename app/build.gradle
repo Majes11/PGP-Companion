@@ -1,0 +1,45 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    namespace = "dev.majes.pgpcompanion"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "dev.majes.pgpcompanion"
+        minSdk = 26
+        targetSdk = 34
+        versionCode = 1
+        versionName = "0.1.0"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+        }
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.8"
+    }
+}
+
+dependencies {
+    // Compose
+    implementation("androidx.compose.ui:ui:1.6.0")
+    implementation("androidx.compose.material3:material3:1.2.0")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.6.0")
+
+    // BouncyCastle (OpenPGP)
+    implementation("org.bouncycastle:bcprov-jdk18on:1.78")
+    implementation("org.bouncycastle:bcpg-jdk18on:1.78")
+
+    // Kotlin Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+}
