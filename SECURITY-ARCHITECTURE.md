@@ -1,7 +1,3 @@
-
-
-`markdown
-
 Security Architecture – PGP Companion
 
 PGP Companion is designed as a fully local, zero‑trust encryption layer for Android.  
@@ -194,4 +190,4 @@ For security questions or responsible disclosure:
 
 Maik – Project Lead & Developer  
 maikjeschke84@gmail.com
-`
+
