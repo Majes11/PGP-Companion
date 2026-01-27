@@ -80,14 +80,4 @@ val decrypted = PgpKeyManager.decryptText(
 
 
 
----
 
-## 📦 Beispielcode (Kurz)
-
-```kotlin
-secureModeManager.setMasterPassword("Passwort!".toCharArray())
-secureModeManager.unlock("Passwort!".toCharArray())
-
-val key = PgpKeyManager.generateRsaKeyRing("Maik <mail@example.com>", "KeyPass!".toCharArray())
-val encrypted = PgpKeyManager.encryptText("Hallo Welt", key.publicKeyRing)
-val decrypted = PgpKeyManager.decryptText(encrypted, key.secretKeyRing, "KeyPass!".toCharArray())
