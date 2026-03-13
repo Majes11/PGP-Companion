@@ -5,8 +5,8 @@ A system‑wide secure layer for Android
 PGP Companion brings strong, interoperable encryption to **any app on Android** — without servers, accounts, or data collection.  
 The project is fully open source (MIT) and designed to make secure communication accessible to everyone.
 
-👉 **Project Website:** https://majes55.github.io/pgp-companion/  
-👉 **GitHub Profile:** https://github.com/majes55  
+👉 **Project Website**:   https://github.com/Majes11/PGP-Companion/
+👉 **GitHub Profile:** https://github.com/majes11
 👉 **Contact:** maikjeschke84@gmail.com  
 
 ---
